@@ -23,6 +23,12 @@ export default class ListOfRepo extends Component<ListOfRepoProps, ListOfRepoSta
         }
     }
 
+    componentDidUpdate(prevProps: ListOfRepoProps) {
+        if (prevProps.listOfRepo !== this.props.listOfRepo) {
+            this.setState({ selected: null });
+        }
+    }
+
     onPressDetail = async (user: IUser, detailRepo: IRepo) => {
         try {
             const res = await get('https://api.github.com/repos/' + user.login + '/' +  detailRepo.name)
