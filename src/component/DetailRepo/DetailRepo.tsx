@@ -11,7 +11,7 @@ export default class DetailRepo extends Component<DetailRepoProps>{
         return (
             <div className='detailRepo-container'>
                 <div>Name project: {this.props.detailRepo.name}</div>
-                <div>Stars: {this.props.detailRepo.stargazers_count} / 5</div>
+                <div>Stars: {this.props.detailRepo.stargazers_count}</div>
                 <div>Description: {this.props.detailRepo.description}</div>
                 <div>Language: {this.props.detailRepo.language}</div>
                 <div>Created at: {this.props.detailRepo.created_at}</div>
