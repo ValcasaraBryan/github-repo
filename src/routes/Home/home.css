@@ -1,3 +1,12 @@
 .home-container {
     flex: 1;
 }
+
+.home-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-list-detail {
+    display: flex;
+}

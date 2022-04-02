@@ -10,18 +10,14 @@ import User from '../../component/User/User';
 import { IRepo, IUser, IProject } from '../../model/listOfRepo.model'
 import './home.css';
 
-
-interface HomeScreenProps {
-    
-}
 interface HomeScreenState {
     listOfRepo: IRepo[]
     searched: boolean;
     detailRepo: IProject | null
     user: IUser | null
 }
-export default class HomeScreen extends Component<HomeScreenProps, HomeScreenState> {
-    constructor(props: HomeScreenProps) {
+export default class HomeScreen extends Component<any, HomeScreenState> {
+    constructor(props: any) {
         super(props);
         this.state = {
             listOfRepo: [],
@@ -42,9 +38,9 @@ export default class HomeScreen extends Component<HomeScreenProps, HomeScreenSta
             <Header />
             <Search onSearch={this.onSearch} />
             {this.state.searched && this.state.user && 
-                <div>
+                <div className='home-detail'>
                     <User user={this.state.user}/>
-                    <div>
+                    <div className='home-list-detail'>
                         <ListOfRepo listOfRepo={this.state.listOfRepo} onClick={this.onSearchDetail} user={this.state.user}/>
                         {this.state.detailRepo && <DetailRepo detailRepo={this.state.detailRepo}/>}
                     </div>

@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { IUser } from '../../model/listOfRepo.model'
+import "./User.css"
 
 interface UserProps {
     user: IUser;
@@ -8,7 +9,7 @@ interface UserProps {
 export default class User extends Component<UserProps> {
     render() {
         return (
-            <div>
+            <div className='user-container'>
                 {this.props.user.login}
             </div>
         )
