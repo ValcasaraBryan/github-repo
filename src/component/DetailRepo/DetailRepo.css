@@ -1,3 +1,17 @@
 .detailRepo-container {
     
 }
+.detailRepo-container div {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #34495E;
+    text-decoration: none;
+}
+.detailRepo-container div span {
+    font-size: 20px;
+}
+
+.detailRepo-container a {
+    color: #34495E;
+    text-decoration: none;
+}

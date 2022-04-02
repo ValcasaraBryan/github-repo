@@ -10,10 +10,12 @@ export default class User extends Component<UserProps> {
     render() {
         return (
             <div className='user-container'>
-                <a target={'_blank'} href={this.props.user.html_url}>
-                    <img src={this.props.user.avatar_url}/>
-                    {this.props.user.login}
-                </a>
+                <div>
+                    <a target={'_blank'} href={this.props.user.html_url}>
+                        <img className='user-image' src={this.props.user.avatar_url}/>
+                        {this.props.user.login}
+                    </a>
+                </div>
             </div>
         )
     }

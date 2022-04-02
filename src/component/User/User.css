@@ -2,3 +2,22 @@
     display: flex;
     justify-content: center;
 }
+.user-container div {
+    background-color: #B2BABB;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.user-container div a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 17px;
+    text-decoration: none;
+    color: #34495E;
+}
+
+.user-image {
+    width: 30px;
+    padding-right: 10px;
+}

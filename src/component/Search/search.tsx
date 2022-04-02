@@ -32,25 +32,33 @@ interface SearchProps {
     onSearch: (listOfRepo: any[], user: any | null) => any
 }
 
+async function onSearch(searchValue: string, props: SearchProps) {
+    const user = await searchUser(searchValue)
+    if (user !== null && user !== undefined) {
+        const listOfRepo = await searchRepos(searchValue)
+        if (listOfRepo) {
+            props.onSearch(listOfRepo, user)
+        }
+    } else {
+        props.onSearch([], null)
+    }
+}
+
+function onPressKey(e: any, searchValue: string, props: SearchProps) {
+    if (e.key === "Enter") {
+        onSearch(searchValue, props);
+    }
+}
+
 export default function Search(props: SearchProps) {
     const [searchValue, setSearchValue] = useState<string>("");
 
     return (
         <div className='search-container'>
             <div className='search-field'>
-                <TextField id="outlined-basic" label="" variant="outlined" onChange={(e) => setSearchValue(e.target.value)}/>
+                <TextField id="outlined-basic" label="" variant="outlined" onKeyPress={(e) => onPressKey(e, searchValue, props)} onChange={(e) => setSearchValue(e.target.value)}/>
             </div>
-            <Button variant="contained" disabled={searchValue.length === 0} onClick={async () => {
-                const user = await searchUser(searchValue)
-                if (user !== null && user !== undefined) {
-                    const listOfRepo = await searchRepos(searchValue)
-                    if (listOfRepo) {
-                        props.onSearch(listOfRepo, user)
-                    }
-                } else {
-                    props.onSearch([], null)
-                }
-            }}>Rechercher</Button>
+            <Button variant="contained" disabled={searchValue.length === 0} onClick={() => onSearch(searchValue, props)}>Search</Button>
         </div>
     )
 }

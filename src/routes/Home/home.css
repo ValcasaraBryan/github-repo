@@ -1,12 +1,26 @@
 .home-container {
     flex: 1;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 .home-detail {
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .home-list-detail {
     display: flex;
+    padding-top: 20px;
+}
+.home-list-detail :nth-child(2){
+    flex: 1;
+}
+
+.home-list-detail-title {
+    font-size: 20px;
+    color: #34495E;
+    text-transform: capitalize;
+    text-align: center;
 }

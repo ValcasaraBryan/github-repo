@@ -27,7 +27,7 @@ export default class HomeScreen extends Component<any, HomeScreenState> {
         } 
     }
     onSearch = (listOfRepo: any[], user: any | null) => {
-        this.setState({ listOfRepo: listOfRepoMapping(listOfRepo), user: user ? userMapping(user) : user, searched: true })
+        this.setState({ listOfRepo: listOfRepoMapping(listOfRepo), user: user ? userMapping(user) : user, searched: true, detailRepo: null })
     }
     onSearchDetail = (detailRepo: any | null) => {
         this.setState({ detailRepo: detailRepo ? detailRepoMapping(detailRepo) : detailRepo })
@@ -41,8 +41,20 @@ export default class HomeScreen extends Component<any, HomeScreenState> {
                 <div className='home-detail'>
                     <User user={this.state.user}/>
                     <div className='home-list-detail'>
-                        <ListOfRepo listOfRepo={this.state.listOfRepo} onClick={this.onSearchDetail} user={this.state.user}/>
-                        {this.state.detailRepo && <DetailRepo detailRepo={this.state.detailRepo}/>}
+                        <div>
+                            <div className="home-list-detail-title">
+                                Repository
+                            </div>
+                            <ListOfRepo listOfRepo={this.state.listOfRepo} onClick={this.onSearchDetail} user={this.state.user}/>
+                        </div>
+                        {this.state.detailRepo &&
+                            <div>
+                                <div className="home-list-detail-title">
+                                    Detail
+                                </div>
+                                <DetailRepo detailRepo={this.state.detailRepo}/>
+                            </div>
+                        }
                     </div>
                 </div>
             }
